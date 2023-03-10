@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "marca": "Dunlop",
+        "modelo": "Direzza DZ102",
+        "medida": "205/55 R16",
+        "rodado": 16,
+        "descripcion": "El DIREZZA DZ102 posee un excelente desempeño en condiciones de lluvia. Desarrollado para usuarios de vehículos deportivos y sedanes, posee un atractivo diseño que combina estabilidad, maniobrabilidad y desempeño anti hidroplaneo",
+        "precio": 56000,
+        "cantidad":1,
+        "imagen": "../assets/auto/DIREZZA-DZ102.png",
+        "stock": 20,
+        "tipo": "Auto"
+    },
+
+    {
+        "id": 2,
+        "marca": "Dunlop",
+        "modelo": "Sport MAXX 050",
+        "medida": "235/40 R18",
+        "rodado": 18,
+        "descripcion": "Neumático “Ultra High Performance” para PC y SUV, sucesor del SP SPORT MAXX TT y producto insignia de Dunlop. El diseño asimétrico del MAXX 050+ permite un excelente desempeño en superficies secas y húmedas, ofreciendo mayor confort en el camino.",
+        "precio": 134000,
+        "cantidad":1,
+        "imagen": "../assets/auto/NEUMATICO-SP-SPORT-MAXX-050_1.png",
+        "stock": 20,
+        "tipo": "Auto"
+    },
+    
+    {
+        "id": 3,
+        "marca": "Dunlop",
+        "modelo": "SP Touring R1",
+        "medida":"175/65 R14",
+        "rodado": 14,
+        "descripcion": "Desarrollado para usuarios de automóviles pequeños y medianos que buscan un neumático de diseño avanzado, resistente y deportivo. El diseño del SP Touring R1 tiene 3 ranuras capaces de evacuar el agua de manera eficiente, asegurando la estabilidad del vehículo al pasar por pavimentos o caminos mojados. Su diseño de 4 costillas, permite un mejor agarre y otorga un desgaste más uniforme.",
+        "precio": 32000,
+        "cantidad":1,
+        "imagen": "../assets/auto/R1_2018_-NUEVO.png",
+        "stock": 20,
+        "tipo": "Auto"
+    },
+
+    {
+        "id": 4,
+        "marca": "Dunlop",
+        "modelo": "SP Sport FM800",
+        "medida":"185/60 R15",
+        "rodado": 15,
+        "descripcion": "El SP SPORT FM800 es un neumático de última generación que incorpora lo último en diseño y tecnología para proporcionar mejoras integrales de rendimiento. La combinación entre la rigidez de la banda de rodado y la flexibilidad en el hombro exterior, entregan un balance perfecto entre maniobrabilidad y durabilidad.",
+        "precio": 49000,
+        "cantidad":1,
+        "imagen": "../assets/auto/SPSPORT705.png",
+        "stock": 20,
+        "tipo": "Auto"
+    },
+    {
+        "id": 5,
+        "marca": "Dunlop",
+        "modelo": "Grandtrek AT25",
+        "medida": "265/60 R18",
+        "rodado":18,
+        "descripcion": "El GRANDTREK AT25 permite una conducción estable y suave dentro y fuera de carretera, otorgando un alto desempeño y seguridad para los usuarios.",
+        "precio": 111000,
+        "cantidad":1,
+        "imagen": "../assets/camioneta/at25_2018.png",
+        "stock": 20,
+        "tipo": "Camioneta"
+    },    
+
+    {
+        "id":6,
+        "marca": "Dunlop",
+        "modelo": "Grandtrek AT3",
+        "medida":"265/70 R16",
+        "rodado":16,
+        "descripcion": "El AT3 ha sido diseñado para disfrutar de estabilidad a altas velocidades y entregar mejor tracción en terrenos de condiciones difíciles, logrando que el vehículo tenga una conducción más tranquila, segura y cómoda. Ha sido desarrollado para obtener el mejor rendimiento dentro y fuera de la carretera, ofreciendo lo mejor de ambos mundos para conductores aventureros.",
+        "precio": 79000,
+        "cantidad":1,
+        "imagen": "../assets/camioneta/NEUMATICO-AT3.png",
+        "stock": 20,
+        "tipo": "Camioneta"
+    },
+
+    {
+        "id": 7,
+        "marca": "Dunlop",
+        "modelo": "Grandtrek MT2",
+        "medida": "245/70 R16",
+        "rodado":16,
+        "descripcion": "Neumático desarrollado con tecnología de punta para un rendimiento superior, con bajos niveles de ruido, dentro y fuera de la carretera. El MT2 es ideal para el trabajo en condiciones O-Road, con potente tracción en barro, grava y tierra.",
+        "precio": 145000,
+        "cantidad":1,
+        "imagen": "../assets/camioneta/MT2_narrow.png",
+        "stock": 20,
+        "tipo": "Camioneta"
+    }, 
+
+    {
+        "id": 8,
+        "marca": "Dunlop",
+        "modelo": "Grandtrek PT3",
+        "medida": "235/60 R16",
+        "rodado":16,
+        "descripcion": "Neumático para SUV para uso en caminos pavimentados. Equilibrio perfecto entre alto rendimiento y cuidado medioambiental, para usuarios que disfrutan de una conducción confortable y segura.",
+        "precio": 92000,
+        "cantidad":1,
+        "imagen": "../assets/camioneta/NEUMATICO-PT3.png",
+        "stock": 20,
+        "tipo": "Camioneta"
+    }
+]
