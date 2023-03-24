@@ -8,9 +8,9 @@ import {
     MenuItem,
     Button,
     Box,
+    Center,
   } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Container } from '@chakra-ui/react';
 import { Flex, Spacer } from '@chakra-ui/react';
 import { Heading } from '@chakra-ui/react';
 
@@ -19,66 +19,68 @@ import { Heading } from '@chakra-ui/react';
 const NavBar = () => {
     return (
 <>
-    <Container  maxW="150rem" bg="blue.100" color="#262626">
-        <Flex alignItems="center" gap="2" >
-            <Box>
-                
-                <Heading size="sm" >
-                <Link to={"/"}>
-                        <img className='logoM' src="/assets/M2.png" alt="logo" />
-                </Link>
-                </Heading>
-            </Box>
-                <Spacer />
-            <Box>
-                <Menu>
-                <Link to={"/catalogue"}>
-                    <MenuButton
-                    as={Button}
-                    size="lg"
-                    variant="outline"
-                    colorScheme="blue"
-                    m="5"
-                    >
-                    Catalogue
-                    </MenuButton>
-                </Link>
-                </Menu>
-                <Menu>
-                <MenuButton
-                    as={Button}
-                    size="lg"
-                    variant="outline"
-                    colorScheme="blue"
-                    rightIcon={<ChevronDownIcon />}
-                    m="5"
-                >
-                    Categories
-                </MenuButton>
-                <MenuList className="menu-list">
-                    <Link to={`/tipo/${"Auto"}`}>
-                    <MenuItem>Auto</MenuItem>
+    <Box  className='navbar'  bg="gray.300" color="#262626">
+        <Flex alignItems="center" justifyContent="space-between"  gap="2" >
+        
+            
+                <Box>
+                    
+                    <Heading size="sm" >
+                    <Link to={"/"}>
+                            <img className='logoM' src="/assets/M2.png" alt="logo" />
                     </Link>
-                    <Link to={`/tipo/${"Camioneta"}`}>
-                    <MenuItem>Camioneta</MenuItem>
+                    </Heading>
+                </Box>
+                <Box mr="85" >
+                    <Menu >
+                        <Link to={"/catalogue"}>
+                            <MenuButton
+                            as={Button}
+                            size="lg"
+                            variant="outline"
+                            colorScheme="yellow"
+                            mx="2"
+                            mr="85"
+                            >
+                            Catalogo
+                            </MenuButton>
+                        </Link>
+                    </Menu>
+                    <Menu>
+                        <MenuButton
+                            as={Button}
+                            size="lg"
+                            variant="outline"
+                            colorScheme="yellow"
+                            rightIcon={<ChevronDownIcon />}
+                            mx="2"
+                        >
+                            Categoria
+                        </MenuButton>
+                    <MenuList className="menu-list">
+                        <Link to={`/categoria/${"auto"}`}>
+                            <MenuItem>Auto</MenuItem>
+                        </Link>
+                        <Link to={`/categoria/${"camioneta"}`}>
+                            <MenuItem>Camioneta</MenuItem>
+                        </Link>
+                        <Link to={`/categoria/${"Camion"}`}>
+                            <MenuItem>Camion</MenuItem>
+                        </Link>
+                        <Link to={`/categoria/${"Moto"}`}>
+                            <MenuItem>Moto</MenuItem>
+                        </Link>
+                    </MenuList>
+                    </Menu>
+                </Box>
+                <Box p="30" >
+                    <Link to={"/cart"}>
+                    <CartWidget />
                     </Link>
-                    <Link to={`/tipo/${"Camion"}`}>
-                    <MenuItem>Camion</MenuItem>
-                    </Link>
-                    <Link to={`/tipo/${"Moto"}`}>
-                    <MenuItem>Moto</MenuItem>
-                    </Link>
-                </MenuList>
-                </Menu>
-            </Box>
-            <Spacer />
-            <Box p="10" w="300px" h="100">
-                <Link to={"/cart"}>
-                <CartWidget />
-                </Link>
-            </Box>
+                </Box>
             </Flex>
-        </Container>
+      
+    </Box>
         </>
     );
     };

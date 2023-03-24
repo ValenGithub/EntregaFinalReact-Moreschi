@@ -1,15 +1,26 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { Heading, Center } from "@chakra-ui/react";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { Text, Center, Image } from "@chakra-ui/react";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 const ItemListContainer = () => {
   const [cubiertas, setCubiertas] = useState([]);
   const { categoria } = useParams();
 
   useEffect(() => {
     const db = getFirestore();
-    const cubiertasCollection = collection(db, "cubiertas");
+    const cubiertasCollection = collection(db, "neumaticos");
+    if (categoria) {
+      const cubiertasFiltro = query (cubiertasCollection , where("categoria","==", categoria))
+      getDocs(cubiertasFiltro).then((querySnapshot)=>{
+          const cubiertas = querySnapshot.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+          setCubiertas(cubiertas);
+          
+        })
+    }else
     getDocs(cubiertasCollection).then((querySnapshot) => {
       const cubiertas = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
@@ -17,18 +28,17 @@ const ItemListContainer = () => {
       }));
       setCubiertas(cubiertas);
     });
-  }, []);
+  }, [categoria]);
 
-  const catFilter = cubiertas.filter((cubiertas) => cubiertas.categoria === categoria);
 
+ 
   return (
-    <div>
-      <Center bg="#D6EAF8" h="100px" color="black">
-        <Heading as="h2" size="2xl">
-          Tipos de Neumaticos
-        </Heading>
+    <div className="contenedor-subtitulo">
+      <Center bg="yellow" h="100px" color="black">
+        <Image className="logo-dunlop" src="../public/assets/dunlop.svg"/>
+        <Text p="4">Distribuidor oficial</Text>
       </Center>
-      {categoria ? <ItemList cubiertas={catFilter} /> : <ItemList cubiertas={cubiertas} />}
+      <ItemList cubiertas={cubiertas} />
     </div>
   );
 };

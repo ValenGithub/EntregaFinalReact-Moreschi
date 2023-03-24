@@ -6,10 +6,9 @@
         Stack,
         Heading,
         Text,
-        Button,
         CardFooter,
         Divider,
-        Alert,
+        Select,
     } from "@chakra-ui/react";
     import { useParams } from "react-router-dom";
     import ItemCount from "./ItemCount";
@@ -20,17 +19,22 @@
         const { id } = useParams();
 
         const [producto, setProducto] = useState([]);
-      
+        const [medidaSeleccionada, setMedidaSeleccionada] = useState(""); // cambio de estado para la medida seleccionada captando con onchange y usando el value medidaSeleccionada
+        
+        const handleMedidaSeleccionada = (event) => {
+          setMedidaSeleccionada(event.target.value);
+        }
+        //console.log(medidaSeleccionada)
         useEffect(() => {
           const db = getFirestore();
       
-          const cubRef = doc(db, "cubiertas", `${id}`);
+          const cubRef = doc(db, "neumaticos", `${id}`);
       
           getDoc(cubRef).then((snapshot) => {
             if (snapshot.exists()) {
               setProducto(snapshot.data());
             } else {
-              console.log("No such document!");
+              console.log("no hay documentos!");
             }
           });
         }, []);
@@ -38,7 +42,11 @@
         const cubiertaFilter = cubiertas.filter((cubierta) => cubierta.id == id);
 
             return (
-            <>
+            <>  
+              <Center bg="#D6EAF8" h="100px" color="black">
+                <Image className="logo-dunlop" src="../public/assets/dunlop.svg"/>
+                <Text p="4">Distribuidor oficial</Text>
+              </Center>
                 {cubiertaFilter.map((cubierta) => (
                 <div key={cubierta.id}>
                     <Center p="1rem">
@@ -48,16 +56,19 @@
                         <Stack mt="6" spacing="3">
                             <Heading size="md">{cubierta.modelo}</Heading>
                             <Text color="blue.800" fontSize="l">
-                            Description: {cubierta.descripcion}
+                            Descripcion: {cubierta.descripcion}
                             </Text>
                             <Text color="blue.800" fontSize="l">
                             Categoria: {cubierta.categoria}
                             </Text>
-                            <Text color="red.600" fontSize="xl">
-                            Medida: {cubierta.medida}
-                            </Text>
+                            <Select color="red.600" fontSize="xl" onChange={handleMedidaSeleccionada} value={medidaSeleccionada} > 
+                            <option >Selecciona una medida</option>
+                              {cubierta.medidas.map((medida, index) => (
+                                <option key={index} value={medida}>{medida}</option>
+                              ))} 
+                            </Select>
                             <Text color="green.600" fontSize="xl">
-                            Price: $ {cubierta.precio}
+                            Precio: $ {cubierta.precio}
                             </Text>
                         </Stack>
                         </CardBody>
@@ -66,8 +77,11 @@
                         <ItemCount
                             stock={cubierta.stock}
                             id={cubierta.id}
-                            price={cubierta.precio}
-                            name={cubierta.modelo}
+                            precio={cubierta.precio}
+                            modelo={cubierta.modelo}
+                            imagen={cubierta.imagen}
+                            handleMedidaSeleccionada={handleMedidaSeleccionada}
+                            medida={medidaSeleccionada}
                         />
                         </CardFooter>
                     </Card>

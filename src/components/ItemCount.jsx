@@ -1,6 +1,5 @@
     import { useContext, useState } from "react";
     import {
-    Text,
     ButtonGroup,
     IconButton,
     Tooltip,
@@ -9,10 +8,16 @@
     } from "@chakra-ui/react";
     import { AddIcon, MinusIcon } from "@chakra-ui/icons";
     import { CartContext } from "../contexts/ShoppingCartContext";
+    import Swal from 'sweetalert2';
 
-    const ItemCount = ({ stock, id, precio, modelo }) => {
+    const ItemCount = ({ stock, id, precio, modelo, imagen , medida:medidaSeleccionada}) => {
     const [cart, setCart] = useContext(CartContext);
     const [count, setCount] = useState(1);
+   
+
+
+
+    
 
     const addQty = () => {
         setCount(count + 1);0
@@ -22,22 +27,43 @@
         setCount(count - 1);
     };
 
-    const addToCart = () => {
-        setCart((currItems) => {
-        const isItemFound = currItems.find((item) => item.id === id);
-        if (isItemFound) {
-            return currItems.map((item) => {
-            if (item.id === id) {
-                return { ...item, quantity: item.quantity + count };
-            } else {
-                return item;
-            }
-            });
+
+    const addToCart = (medidaSeleccionada) => {
+        if (medidaSeleccionada === "" || medidaSeleccionada === "Selecciona una medida" ) {                    //condicion para seleccionar
+            return Swal.fire({
+                icon: 'warning',
+                title: 'Seleccione una medida',
+              })
         } else {
-            return [...currItems, { id, quantity: count, precio, modelo }];
-        }
-        });
-    };
+
+        setCart((items) => {
+          const isItemFound = items.find((item) => item.id === id && item.medidaSeleccionada === medidaSeleccionada);  //condicion para la medida select render
+          if (isItemFound) {
+            return items.map((item) => {
+              if (item.id === id && item.medidaSeleccionada === medidaSeleccionada) {
+                return { ...item, quantity: item.quantity + count };
+              } else {
+                return item;
+              }
+            });
+          } else {
+            return [
+              ...items,
+              {
+                id,
+                quantity: count,
+                precio,
+                modelo,
+                imagen,
+                medidaSeleccionada
+              }
+            ];
+          };
+         });
+        };
+      };
+
+   // console.log(cart)
 
     return (
         <>
@@ -51,7 +77,7 @@
             )}
             <Center>
             <Button
-                onClick={() => addToCart()}
+                onClick={() => addToCart(medidaSeleccionada)}
                 variant="solid"
                 colorScheme="blue"
             >
@@ -67,6 +93,8 @@
             )}
         </ButtonGroup>
         </>
+
+    
     );
     };
 
