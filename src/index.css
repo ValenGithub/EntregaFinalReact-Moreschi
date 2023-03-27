@@ -82,7 +82,58 @@ button:focus-visible {
 }
 
 
+.box-auto {
+  background-image: url('https://www.dunlop-la.com/public/assets/img/auto.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity .3s ease-in-out;
+  
+}
 
+.box-auto:hover{
+  background-color: #2a6496;
+  color:#2a6496 ;
+  opacity: .8;
+  transform: scale(1.1);
+}
+
+.box-camioneta {
+  background-image: url('https://www.dunlop-la.com/public/assets/img/4x4.png');
+  background-repeat: no-repeat;
+  
+}
+
+.box-camioneta:hover{
+  background-color: #2a6496;
+  color:#2a6496 ;
+  opacity: .8;
+  transform: scale(1.1);
+  
+}
+.box-camion {
+  background-image: url('https://www.dunlop-la.com/public/assets/img/camion.png');
+  background-repeat: no-repeat;
+  
+}
+
+.box-camion:hover{
+  background-color: #2a6496;
+  color:#2a6496 ;
+  opacity: .8;
+  transform: scale(1.1);
+}
+.box-moto {
+  background-image: url('https://www.dunlop-la.com/public/assets/img/moto.png');
+  background-repeat: no-repeat;
+  
+}
+
+.box-moto:hover{
+  background-color: #2a6496;
+  color:#2a6496 ;
+  opacity: .8;
+  transform: scale(1.1);
+}
 
 
 

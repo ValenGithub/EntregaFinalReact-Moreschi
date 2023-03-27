@@ -24,8 +24,8 @@
         }
    
 
-        const handleRemoveItem = (id) => {
-            const updatedCart = cart.filter((item) => item.id !== id);
+        const handleRemoveItem = (medidaSeleccionada) => {
+            const updatedCart = cart.filter((item) => item.medidaSeleccionada !== medidaSeleccionada);
             setCart(updatedCart);
           };
 
@@ -76,7 +76,7 @@
                                 <Text p="4">Subtotal: $ {precioSubtotal(item)}</Text>
                                 <Button
                                 colorScheme="red"
-                                onClick={() => handleRemoveItem(item.id)}
+                                onClick={() => handleRemoveItem(item.medidaSeleccionada)}
                                 >
                                 Eliminar
                                 </Button>

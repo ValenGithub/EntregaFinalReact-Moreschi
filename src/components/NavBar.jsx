@@ -64,10 +64,10 @@ const NavBar = () => {
                         <Link to={`/categoria/${"camioneta"}`}>
                             <MenuItem>Camioneta</MenuItem>
                         </Link>
-                        <Link to={`/categoria/${"Camion"}`}>
+                        <Link to={`/categoria/${"camion"}`}>
                             <MenuItem>Camion</MenuItem>
                         </Link>
-                        <Link to={`/categoria/${"Moto"}`}>
+                        <Link to={`/categoria/${"moto"}`}>
                             <MenuItem>Moto</MenuItem>
                         </Link>
                     </MenuList>
